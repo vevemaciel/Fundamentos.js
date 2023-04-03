@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<canvas width="600" height="400">
+
+</canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'lightgrey';
+        pincel.fillRect(0,0,600,400);
+        
+        pincel.fillStyle = 'green';
+        pincel.fillRect(0,0,200,400);
+
+        pincel.fillStyle = 'red'
+        pincel.fillRect(400,0,200,400);
+
+        pincel.fillStyle =' yellow';
+        pincel.beginPath();
+        pincel.moveTo (300,200);
+        pincel.lineTo(200,400);
+        pincel.lineTo(400,400);
+        pincel.fill();
+
+        pincel.fillStyle =' blue';
+        pincel.beginPath();
+        pincel.arc (300, 200, 50, 0 , 2*3.14);
+        pincel.fill();
+
+    </script>
+
+</html>
+
+
+<!-- Transcrição 1
+Nosso primeiro passo nesta aula será criarmos nosso programa.html.
+
+Abriremos nosso editor de texto e salvaremos o arquivo em nossa área de trabalho, com o nome programa.html.
+
+Aqui estamos utilizando o Sublime 2, mas você pode utilizar qualquer editor de sua preferência.
+
+Lembrando que, no curso anterior de Lógica de Programação, vimos que quando queremos escrever um código em JavaScript utilizamos as tags <meta charset=UTF-8"> e a <script> para podermos escrever nosso código.
+
+Conforme vimos, tudo que está dentro da tag <script> pertence ao mundo JavaScript, e tudo que está fora - seja antes ou depois -, pertence ao mundo HTML.
+
+Aprendemos no mundo JavaScript, a utilizar funções do mundo HTML por meio do document, por exemplo o document.write() que nos permite imprimir algo:
+
+<meta charset="UTF-8">
+
+<script>
+
+document.write("");
+
+</script>COPIAR CÓDIGO
+Podemos, por exemplo, escrever a mensagem "Oi":
+
+<meta charset="UTF-8">
+
+<script>
+
+document.write("<h1>Oi</h1>");
+
+</script>COPIAR CÓDIGO
+Salvaremos o programa e retornaremos ao navegador. Nele, escolheremos a opção de abrir arquivo, e selecionaremos o programa.html, assim, temos a seguinte exibição:
+
+OiCOPIAR CÓDIGO
+Entretanto, nosso objetivo não é escrever HTML no mundo HTML, em vez disso, queremos desenhar. Sendo assim, não utilizaremos o document.write().
+
+Para desenhar precisamos: de uma tela e de um pincel.
+
+Vamos acessar a página do Google e digitar "empty canvas". A palavra "empty" significa "vazio", em Português.
+
+Observando os resultados, vemos que são exibidas imagens de telas em branco. Os mundos HTML e JavaScript utilizam o Inglês, por isso, as tags estão neste idioma, "canvas" também é uma tag do mundo HTML.
+
+Se inserirmos em nosso código a tag <canvas>, ela é válida do mundo HTML e tem a mesma finalidade de uma tela em branco, ou seja, uma área em que podemos desenhar.
+
+Como vamos trabalhar com desenhos, não iremos utilizar textos, não será necessária a inclusão da tag <meta charset="UTF-8">, que serve para resolvermos problemas de acentuação.
+
+Assim, temos o mínimo para podermos começar a programar:
+
+<canvas></canvas>
+
+<script>
+
+</script>COPIAR CÓDIGO
+Recapitulando: O canvas é uma área da tela onde podemos desenhar, escrever com um pincel.
+
+Precisamos informar, em nosso programa, quanto o <canvas> ocupa de espaço. Para isso, utilizaremos dois atributos, o width, que em português é "largura", diremos que é 600, e o height, ou "altura", que será de 400.
+
+<canvas width="600" height="400"> </canvas>COPIAR CÓDIGO
+Se salvarmos e recarregarmos a página, nada acontece para nós, visualmente. Isso porque o <canvas> é branco, por padrão. Como o fundo do navegador também é, não conseguimos ver o que acabamos de criar.
+
+Para que possamos visualizar, faremos com que ele ganhe cor. É o que veremos adiante. -->
+
+<!-- Transcrição 2
+Nesta aula, aprenderemos a desenhar utilizando um pincel.
+
+Nas aulas anteriores, aprendemos que o document possui uma função que nos permite utilizar algo do mundo HTML dentro do mundo JavaScript.
+
+Para isso, criaremos a variável tela, e pediremos ao document.querySelector() o parâmetro "canvas" - note que está entre aspas:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+
+</script>COPIAR CÓDIGO
+JavaScript pode utilizar tanto as aspas ("), quanto apóstrofo ('), que nos referimos como aspas simples. É o que utilizaremos até o final do treinamento, apenas para simplificar a digitação.
+
+Assim, o documento tem o <canvas> e, dentro do JS, pedimos para o document executar a função querySelector() para pegar este <canvas> e passá-lo como valor na variável tela.
+
+Isso nos dá a área para escrever, mas e o pincel? Criaremos uma variável pincel, que receberá como valor a tela:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.
+
+</script>COPIAR CÓDIGO
+A tela, assim como o document sabe buscar um elemento da página por meio da tag, e fornecer um retorno para a variável, poderá passar o pincel.
+
+No mundo da programação podemos ter gráficos em 2D, 3D, 4D, enfim, portanto, precisamos informar à tela qual o tipo de pincel, ou seja, o contexto no qual escreveremos na tela. Para isso, utilizaremos o getContext() e passaremos o 2d como parâmetro:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+</script>COPIAR CÓDIGO
+Já temos a tela e o pincel, portanto podemos escrever na tela.
+
+Se o pincel foi dado pelo <canvas>, qualquer operação feita nele atuará sobre a tela.
+
+Nossa primeira operação será desenhar um retângulo de dimensões 600x400, para preencher todo o <canvas>. Para fazer isso, chamaremos o pincel, e pediremos para ele, com o operador ., preencher o retângulo.
+
+Preencher em Inglês é "fill", enquanto "rect" é a abreviação de retângulo:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillRect();
+</script>COPIAR CÓDIGO
+Ou seja, estamos pedindo ao JavaScript para preencher um retângulo. Entretanto, precisamos informar ao programa o ponto da tela onde desejamos começar a preencher.
+
+Assim como um pintor inicia sua pintura em um ponto específico da tela, nós também precisamos posicionar nosso pincel no <canvas> para podermos iniciar nosso preenchimento.
+
+Como sabemos, na matemática trabalhamos com a ideia de planos cartesianos, onde temos um eixo x, na horizontal, e um eixo y, na vertical.
+
+De acordo com as dimensões que especificamos, começaremos nosso preenchimento no canto superior esquerdo, isso significa que iniciaremos no ponto 0 tanto no eixo x quanto y.
+
+No código, estas coordenadas são inseridas entre os parênteses da instrução pincel.fillRect():
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillRect(0, 0);
+
+</script>COPIAR CÓDIGO
+Dessa coordenada, queremos criar uma forma que tenha 600 de largura, e 400 de altura, portanto, inseriremos isto em nosso código:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillRect(0, 0, 600, 400);
+
+</script>COPIAR CÓDIGO
+Salvaremos o programa e recarregaremos a página, e vemos na tela um retângulo preto, com as dimensões 600 (largura) x 400 (altura), posicionando o pincel a partir do ponto mais extremo no canto superior esquerdo.
+
+Como estamos utilizando o fill, ou "preencher", ele completa o restante da área com preto.
+
+Só que, a cor preta é muito forte, colocaremos uma cor mais suave. Para indicar qual a "tinta", temos de indicar o fillStyle:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillRect(0, 0, 600, 400);
+    pincel.fillStyle
+
+</script>COPIAR CÓDIGO
+Diferentemente de fillRect(), de getContext(), ou de querySelector(), o fillStyle não é uma função, e sim o que chamamos de propriedade. É equivalente a uma variável, por receber um valor, que é a cor. No caso, utilizaremos o 'lightgrey':
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillRect(0, 0, 600, 400);
+    pincel.fillStyle = 'lightgrey';
+
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Entretanto o retângulo continua preto, por quê?
+
+Pensando em uma situação real, se pedimos para alguém pintar algo, a pessoa precisará da tinta. No caso, estamos passando as informações de cor após termos pintado, sem termos fornecido a tinta.
+
+Sendo assim, o fillStyle deve vir antes do fillRect:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos. Deu certo! Temos nosso <canvas> em cinza claro. Qualquer desenho que fizermos respeitará a área que delimitamos nas dimensões.
+
+Aumentaremos as dimensões, para 800 de largura e 600 de altura:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 800, 600);
+
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Não aconteceu nada. Isso porque, por mais que tenhamos informado novas dimensões, o máximo que caberá em nosso <canvas> é 600x400, portanto, respeitaremos isso. -->
+
+<!-- Transcrição 3  
+Nesta aula, daremos continuidade ao projeto da aula anterior, onde fizemos nosso primeiro desenho.
+
+Nossa visualização será, no lado esquerdo, do <canvas> em sua totalidade, e, no lado direito, veremos nosso código.
+
+Criaremos um novo retângulo, que terá 200 de largura e 400 de altura, na cor verde. Primeiro, selecionaremos a nova cor, utilizando o fillStyle:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+</script>COPIAR CÓDIGO
+Em seguida, pediremos ao pincel que se movimente em nossa tela, por meio do fillRect na posição (0, 0, 200, 400):
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Temos em nossa tela a exibição de um retângulo menor, ao lado esquerdo, na cor verde, e o resto do <canvas> preenchido em cinza, algo análogo à representação abaixo:
+
+navegador web com representação da tag canvas, onde parte dele está na cor verde, especificamente o retangulo esquerdo, enquanto o restante permanece em cinza
+
+O próximo passo será criar um novo retângulo, de mesmo tamanho, no lado direito, na cor vermelha. Para isso, criaremos um novo pincel.fillStyle e um novo pincel.fillRect.
+
+Como queremos que ele comece em determinado ponto do retângulo, ou seja, do eixo x, precisamos representar isso no fillRect. Já que este lado mede 600, e teremos três formas, cada uma delas terá 200 de largura, sendo assim, a terceira forma iniciará a partir do ponto 400:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos, teremos na tela um retângulo verde, como na imagem anterior, mas agora temos também um retângulo cinza ao seu lado direito, de mesmo tamanho e, a sua direita, um retângulo vermelho com as mesmas dimensões.
+
+Comentaremos o bloco que contém as informações com a cor cinza do <canvas>, em JavaScript isso pode ser feito utilizando o comando /* indicando o ponto inicial do comentário, seguido do */ para finalizá-lo:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    /*
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+    */
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Como podemos observar, não há mais a área cinza do <canvas>. Temos portanto a bandeira da Itália. Retornaremos com o código, para termos tudo funcionando:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos.
+
+Nosso próximo objetivo será desenhar um triângulo no centro do retângulo cinza, é o que veremos adiante. -->
+
+<!-- Transcrição 4 triangulo
+Nesta aula, aprenderemos a criar um triângulo.
+
+Para a criação desta forma geométrica, não utilizaremos o fillRect, em vez disso, queremos começar um caminho. O que é isso?
+
+Começar, em inglês, é begin, e caminho é path. Portanto, utilizaremos um begin path para dizermos qual será a direção seguida por nosso pincel. O primeiro passo é utilizar o fillStyle, com a cor amarela:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+
+</script>COPIAR CÓDIGO
+Com isso, indicaremos que nosso pincel iniciará seu caminho com o pincel.beginPath():
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+
+</script>COPIAR CÓDIGO
+Para começarmos a escrever, indicaremos onde está o ponto inicial do nosso triângulo. Nossa primeira coordenada será centralizada na tela, para fazermos isso, utilizaremos a função moveTo:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo();
+
+</script>COPIAR CÓDIGO
+Pensando em nossas coordenadas, temos que posicionar nosso pincel exatamente no ponto 300, da coordenada X (que mede 600), e 200 na Y (que mede 400):
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+
+</script>COPIAR CÓDIGO
+Em seguida, moveremos o pincel para uma nova posição, com a função lineTo(). Esta posição será o ponto de encontro entre o verde e o cinza, e a linha inferior de nosso <canvas>, portanto, 200 no eixo X, e 400 no eixo Y:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+
+</script>COPIAR CÓDIGO
+O próximo movimento criará uma linha horizontal, do ponto que acabamos de criar até o ponto em que o cinza encontra o vermelho, de coordenadas 400 (X), e 400 (Y):
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+
+</script>COPIAR CÓDIGO
+Por fim, basta inserirmos um comando para que o programa preencha esta forma, que é o pincel.fill():
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Temos nossa imagem, assim como antes, só que agora há um triângulo de cor cinza (apenas para ilustrar), com sua base no final do <canvas> e pico centralizado em relação a forma como um todo:
+
+retângulos verde, cinza e vermelho ao fundo, com um triângulo amarelo inserido no retângulo cinza
+
+Como vimos, a construção do triângulo foi trabalhada a partir de um caminho, criamos o primeiro ponto, ou vértice, e em seguida os demais. Por último, fazemos com que o programa preencha esta forma com a cor que já escolhemos.
+
+Nosso próximo desafio será criar uma esfera. -->
+
+<!-- Transcrição 5 circulo
+Podemos fazer qualquer figura que tenha lados usando essa fórmula, não apenas triângulos. Mas e se precisarmos de algo arredondado? Vamos colocar uma circunferência azul no meio da nossa imagem, pra ficar assim:
+
+imagem com faixas verticais verde,cinza e vermelha ao fundo, um triângulo e uma esfera na faixa cinza
+
+Para começarmos, indicaremos um novo pincel, com o fillStyle na cor azul, e um novo caminho, com o beginPath:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    pincel.fillStyle = 'blue';
+    pincel.beginPath();
+
+</script>COPIAR CÓDIGO
+Temos de iniciar um novo caminho, caso contrário, o programa entenderá que deve continuar o caminho anterior.
+
+Com esta etapa concluída, partiremos para a utilização da função arc(), para traçarmos nossa esfera. Nela, incluiremos as seguintes informações:
+
+Posicionamento da esfera, que definiremos como 300 (X) e 200 (Y);
+Tamanho, ou seja, o raio - que definiremos como 50;
+O ângulo inicial, e o ângulo final, em radianos (multiplicado por PI - 3,14);
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    pincel.fillStyle = 'blue';
+    pincel.beginPath();
+    pincel.arc(300, 200, 50, 0, 2 * 3.14);
+
+</script>COPIAR CÓDIGO
+Por enquanto, nosso foco não serão as questões matemáticas.
+
+Em seguida, chamaremos a função fill para que a esfera seja preenchida:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0, 0, 200, 400);
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400, 0, 200, 400);
+
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.moveTo(300, 200);
+    pincel.lineTo(200, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    pincel.fillStyle = 'blue';
+    pincel.beginPath();
+    pincel.arc(300, 200, 50, 0, 2 * 3.14);
+    pincel.fill();
+
+</script>COPIAR CÓDIGO
+Salvaremos o programa e recarregaremos a página. Temos nossa esfera azul, exatamente no pico de nosso triângulo.
+
+Para que pudéssemos construir esta imagem, precisamos conhecer a função getContext(), fillRect(), lineTo(), beginPath(), a propriedade fillStyle, a esse conjunto de propriedades damos o nome de APIs, ou bibliotecas. Aqui, estamos manipulando a API específica para a criação de gráficos.
+
+Para descobrirmos estas bibliotecas, temos que pesquisar pela documentação da linguagem na internet, utilizando os termos "canvas 2d api".
+
+O resultado escolhido está disponível.
+
+Clicamos no link das Web APIs, há materiais disponíveis sobre fillRect, fillStyle, entre outros. O que faremos é melhorar certos aspectos do nosso programa nas próximas aulas e organizar nosso código da melhor forma pois, se alguém que está iniciando na programação ler ele, não conseguirá identificar com clareza qual a sua função.
+
+Adiante, organizaremos nosso código, para facilitar sua manutenção e legibilidade.
+
+ DISCUTIR NO FORUM
+ -->

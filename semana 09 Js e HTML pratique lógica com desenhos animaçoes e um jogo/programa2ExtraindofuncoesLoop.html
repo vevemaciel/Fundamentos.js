@@ -1,0 +1,263 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    function desenhaQuadrado(x,y, cor){
+
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = cor;
+    pincel.fillRect(x,y,50,50);
+    pincel.strokeStyle = 'black';
+    pincel.strokeRect(x, y, 50, 50); 
+    
+    }
+
+   /*  var x = 0;
+
+    while (x < 600) {
+        desenhaQuadrado(x, 0, 'green');
+        desenhaQuadrado(x, 50, 'red');
+        desenhaQuadrado(x, 100, 'blue');
+        x = x + 50;
+        
+    }
+ */
+
+  for (let x = 0; x < 600; x = x+ 50) {
+    desenhaQuadrado(x, 0, 'green');
+    desenhaQuadrado(x, 50, 'red');
+    desenhaQuadrado(x, 100, 'blue');
+    
+  }
+
+
+
+</script>
+ <!-- Transcrição
+Agora que aprendemos a criar uma função genérica, proponho uma pergunta: e se quisermos preencher <canvas> com quadrados?
+
+Como nosso tela tem 600 de largura, teríamos que colar linha por linha, de 50 em 50, até completarmos 600 - seriam 30 linhas de código. Mas nós temos um padrão, em que a coordenada X deve ser repetida de 50 em 50 no código.
+
+Como sabemos, podemos trabalhar com estruturas de repetição, chamadas de laços. Um deles é o while, que funciona enquanto alguma condição for verdadeira. A sua função será inserida em um bloco, entre chaves ({}):
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+    }
+
+    while() {        
+        desenhaQuadrado(0, 0, 'green');
+
+    }
+</script>COPIAR CÓDIGO
+Enquanto a condição do while for verdadeira, o desenhaQuadrado será repetido.
+
+Primeiro, declararemos o a variável x, que iniciará em 0:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+    }
+
+    var x = 0;
+
+    while() {        
+        desenhaQuadrado(0, 0, 'green');
+
+    }
+
+</script>COPIAR CÓDIGO
+A condição de validade será que o while deve ser repetido enquanto x for menor que 600. Então, passaremos como parâmetro a própria variável x:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+}
+
+    var x = 0;
+
+    while(x < 600) {
+
+        desenhaQuadrado(x, 0, 'green');
+    }
+
+</script>COPIAR CÓDIGO
+Para podermos passar para o próximo quadrado, temos que avançar 50 pixels, assim, diremos que, ao ser executada a primeira função, x será acrescido de 50:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+    }
+
+    var x = 0;
+
+    while(x < 600) {
+
+        desenhaQuadrado(x, 0, 'green');
+        x = x + 50;
+
+    }
+</script>COPIAR CÓDIGO
+Todas as vezes que o loop for executado, x será acrescido de 50, até o limite de 600.
+
+Para criarmos, abaixo da linha de quadrados verdes, uma linha de quadrados vermelhos, basta declararmos a função desenhaQuadrado() novamente, com um parâmetro y correspondente à nova posição:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+    }
+
+    var x = 0;
+
+    while(x < 600) {
+
+    desenhaQuadrado(x, 0, 'green');
+    desenhaQuadrado(x, 50, 'red');
+    x = x + 50;
+    }
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Podemos ver uma linha de quadrados verdes, e abaixo, uma linha de quadrados vermelhos. Podemos fazer o mesmo processo com a cor azul:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+    }
+
+    var x = 0;
+
+    while(x < 600) {
+
+    desenhaQuadrado(x, 0, 'green');
+    desenhaQuadrado(x, 50, 'red');
+    desenhaQuadrado(x, 100, 'blue');
+    x = x + 50;
+    }
+
+</script>COPIAR CÓDIGO
+Ao salvarmos e recarregarmos as páginas, veremos as três linhas de quadrados. Temos que prestar atenção aos valores do eixo Y, pois se houver dois iguais, prevalecerá o que foi desenhado por último.
+
+Podemos obter este mesmo resultado utilizando um for. Deixaremos o método while() comentado. O trecho será destacado com */:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+    }
+    /*
+    var x = 0;
+
+    while(x < 600) {
+        desenhaQuadrado(x, 0, 'green');
+    x = x + 50;
+    }
+    */
+</script>COPIAR CÓDIGO
+O for nos permite criar uma variável internamente, portanto nossa var x = 0 estará inserida nele, assim como a condição x < 600, e o incremento x = x + 50:
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+}
+    /*
+    var x = 0;
+
+    while(x < 600) {
+
+        desenhaQuadrado(x, 0, 'green');
+    x = x + 50;
+    }
+   */
+    for(var x = 0; x < 600; x = x + 50) {
+    desenhaQuadrado(x, 0, 'green');
+    }
+
+</script>COPIAR CÓDIGO
+Salvaremos e recarregaremos a página. Temos o mesmo resultado que tivemos com o while, uma linha com quadrados verdes. Portanto, utilizamos as duas estruturas de repetição possíveis para conseguir um mesmo resultado, com foco organizacional para o nosso código.
+
+CONTINUAR LENDO
+ -->
