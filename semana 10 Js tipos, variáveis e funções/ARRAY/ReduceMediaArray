@@ -1,0 +1,125 @@
+const salajs= [7,8,8,7,10,6.5,4,10,7]
+const salaJava= [6,5,8,9,5,6]
+const salaPython= [7,3.5,8,9.5]
+
+function mediaSala(notaDaSala){
+    const somaDasNotas = notaDaSala.reduce((acum, atual) => atual + acum, 0 )
+    return somaDasNotas/notaDaSala.length
+}
+console.log(`Media da sala de Js ${mediaSala(salajs)}`)
+console.log(`Media da sala de JAVA ${mediaSala(salaJava)}`)
+console.log(`Media da sala de PYTON ${mediaSala(salaPython)}`)
+
+
+const notas =[10,6.5,8,7]
+const media = notas.reduce((acum, atual)=> atual + acum, 0)/notas.length
+console.log(media)
+
+/* 
+[00:00] Juliana: Vamos ver qual o último desafio neste curso de arrays. Vamos agora juntar o que vimos nas outras aulas e agora o desafio é, já tiramos as médias de todos os alunos, percorremos, filtramos, vimos quem estava reprovado ou não, e agora temos que tirar a média geral de cada sala, e temos três salas para fazer isso. Mais de uma coisa que temos que resolver nesse desafio.
+
+[00:28] Juliana: Já abrimos um arquivo chamado média geral e o Léo já está pronto para dizer para nós como ele resolveu essa parada.
+
+[00:36] Leonardo: Primeiro vou trazer para nós todos os dados que estão no nosso desafio. Dessa vez ele foi até legal conosco que já trouxe em forma de const, nas listas montadas para nós, porque realmente é bastante informação.
+
+[00:52] Leonardo: Vamos agora começar a resolver. Como precisamos calcular a média de três arrays diferentes, e eu não quero ficar repetindo código, vou criar uma função para fazer isso. Vou criar ela da maneira normal, digamos assim, não vai ser arrow function, não vai ser nada muito especial. Vou criar com o parâmetro function mesmo. E agora vou colocar o nome, vou chamar de média sala.
+
+[01:22] Leonardo: Ela vai receber alguma coisa. Como queremos calcular a média dos arrays, vou pedir para ele receber um array inteiro, que vou chamar de notas da sala. E agora vou abrir o escopo da minha função para poder começar a escrever ela realmente.
+
+[01:44] Leonardo: Como vamos fazer isso? Vamos utilizar um outro método, um método chamado reduce, de reduzir. Ou seja, vamos trazer todo o array para um único valor. Ele vai retornar para nós esse valor. Tenho que colocar esse valor em algum lugar. Então vou criar uma const, vou chamar ela de somaDasNotas, e agora vou utilizar esse novo método reduce.
+
+[02:20] Leonardo: Então notasDaSala, que é meu parâmetro que passei para minha função, .reduce e abre e fecha parênteses. Agora podemos começar a escrever aqui dentro. O que o reduce precisa? Ele vai precisar de uma função, vou escrever com uma arrow function, e vai precisar de mais um parâmetro que vamos ver um pouco mais para frente.
+
+[02:40] Leonardo: Vamos começar com uma função. No caso do reduce, vou passar dois parâmetros para ele. Um que é um acumulador, que vai guardar valores, vai ficar acumulando esses valores, e um outro que vou chamar de atual, que é o valor atual que vamos trabalhar.
+
+[03:10] Leonardo: Agora vou colocar minha seta da arrow function. Vamos lá, vamos escrever. O que eu quero aqui? Quero somar todos os valores, somar todas as notas para depois poder tirar a média. Então, quero só o valor atual mais o valor do acumulador. Pronto, essa é minha arrow function, só que o reduce precisa de outro parâmetro, que é um valor inicial desse acumulador. Como aqui é só uma multiplicação, então esse valor inicial vai ser zero.
+
+[03:44] Leonardo: Temos a soma de todas as notas, o que precisamos agora? Precisamos retornar dessa função, um valor, que é o valor da média. Então return somaDasNotas/notasDaSala.length, o comprimento, o tamanho do array notas da sala que vamos receber. Isso já deve retornar para nós.
+
+[04:22] Leonardo: Vamos agora só mostrar no console quais são essas notas. Vou dar um console.log(‘Media da sala de JavaScript ${mediaSala(salaJS)}, agora deixa eu escrever os outros dois também, vou copiar esse e colar duas vezes, vou só alterar as diferenças. Então média da sala de Java, precisamos passar o parâmetro da sala de Java, e por último a média da sala de Python, temos que passar como parâmetro da função a sala de Python. Teoricamente é isso, Ju.
+
+[05:54] Juliana: Beleza, então vamos salvar e fazer nosso teste com node média geral. Sala JS is not defined em algum lugar.
+
+[06:11] Leonardo: Já vi aqui, Ju, escrevi errado, dentro do console.log coloquei maiúsculo e não era maiúsculo.
+
+[06:20] Juliana: Quando nós trabalhamos com mais de uma linguagem de programação nós fazemos esse tipo de coisa, é normal.
+
+[06:25] Leonardo: Exatamente, só salvar e vamos tentar de novo.
+
+[06:30] Juliana: Então vamos rodar. Agora sim, média da sala de Java script, média da sala de Java, média da sala de Python, 7.5,6.5 e 7. Vamos dar uma olhada no que o Léo fez. Primeiro que é uma função, se temos três salas, não tem por que repetir o código, então o que o Léo fez foi criar uma função passando como parâmetro o que o Léo chamou de notas da sala, ele vai substituir depois por cada uma das variáveis de cada um dos arrays que estamos trabalhando, ou seja, todo lugar onde está o parâmetro vai ser substituído depois pelo array sala de JS.
+
+[07:11] Juliana: Quando no console.log chamamos a função, lembrando que a função tem duas fases, a fase onde definimos ela e onde declaramos, e onde chamamos, então a função está sendo chamada no console.log com cada um dos arrays que queremos trabalhar substituindo o parâmetro notas da sala.
+
+[07:35] Juliana: E vem o principal aqui que é o método reduce, que vai reduzir todos os valores de um array para um único valor numérico. O reduce tem que ter sempre esses dois parâmetros, o primeiro parâmetro é o acumulador e o segundo é o valor atual.
+
+[07:52] Juliana: O que chamamos de atual? Lembrando que o reduce é um método como todos os outros que vimos que itera, ele faz um loop no array, então o atual é o valor atual do loop, ele começa com 7, depois para 8, vai para outro 8, no caso do primeiro array, ele vai pulando de “um em um” e para cada loop o que chamamos de atual representa o valor que está no elemento atual do array que está sendo reduzido.
+
+[08:20] Juliana: O segundo parâmetro que o Léo colocou 0 para começarmos com um número neutro, porque é uma soma, chegamos falando de multiplicação lá atrás, mas é uma soma, então vamos começar ela com 0, é o valor que depois vai ser acumulado, é muito parecido com a let que criamos nos exercícios anteriores que costumávamos colocar fora, uma let, soma, igual a 0. Não precisamos mais fazer isso, porque o reduce faz automaticamente passando o 0 como parâmetro.
+
+[08:54] Juliana: Esse 0 pode ser qualquer valor, então se quiséssemos começar com 10, por exemplo, obviamente nossa média não vai dar muito certo, porque vão ser outros valores, agora não começamos mais com 0, começamos com 10, então os números vão começar com 17, depois 17 mais 8, etc., mas só para ilustrar. Vou voltar para 0 e no final pegou o número acumulado e dividiu por notasDaSala.length, ou seja, para cada uma das vezes que foi chamada essa função foi salaJS.length ou salaJava.length, e assim por diante.
+
+[09:35] Juliana: Como fazemos em função, retornamos esse valor e ele foi exibido no console para nós. Poderíamos fazer aqui, Léo, aproveitar que estamos mostrando o reduce, que o conceito é muito comum em programação, não é exclusiva do Java script, e podemos fechar dando um último exemplo de como podemos usar tudo que vimos até agora para resolver o problema que vimos lá na primeira aula de como tirar médias de alunos.
+
+[10:11] Juliana: Começamos tirando as médias de uma forma mais por extenso, hard coded, íamos na nossa rede notas, pegávamos cada um dos itens, nota no índice 0, nota no índice 1, mas agora que vimos o reduce como podemos usar para resolver o mesmo problema?
+
+[10:28] Leonardo: Vamos lá, Ju. Primeiro vou trazer todas as informações que tínhamos lá, então era uma const de notas e ela tinha as notas 10, 6.5, 8 e 7. Esses eram os dados que nós tínhamos. E agora vamos fazer o novo cálculo usando o reduce, sabemos que ele vai retornar um valor que vou chamar de média direto para nós, e vou dar o igual, vou chamar o reduce, notas.reduce, e vamos criar nossa função.
+
+[11:18] Leonardo: Vou puxar meu acumulador e meu valor atual. Só para deixar claro que o acumulador, esse nome que estou dando de acum e atual são nomes de parâmetros, então você pode dar o nome que você quiser, é o nome que eu geralmente utilizo, mas vocês podem ficar à vontade para trocar o nome desses parâmetros.
+
+[11:45] Juliana: Muito bem lembrado, Léo, inclusive em alguns exemplos você pode achar até mais curto, como ab, por exemplo, mas essa foi muito bem lembrado, porque nós damos os nomes que quisermos, então às vezes você vê os exemplos, é muito comum em documentação você ver o exemplo como ab, mas acum e atual é bem comum também de usar.
+
+[12:05] Leonardo: Exatamente, Ju. E vamos lá. Aqui no caso também é só uma soma. Então atual mais acumulado, e aí também queremos começar com o valor 0. No caso aqui para ficar até mais curta nossa linha, não precisar quebrar em mais linhas, vou fazer a divisão também.
+
+[12:30] Leonardo: Depois do notas.reduce, vou colocar nossa divisão, que é notas.length.
+
+[12:41] Juliana: O autocompletar te passou a perna de novo.
+
+[12:44] Leonardo: Pois é. Agora sim, notas.length, e por fim vou dar um console para ver o que aconteceu. Então console.log(media).
+
+[13:05] Juliana: Vamos salvar, estava esquecendo de salvar. Node, média geral, 7.875, perfeito, funcionou direito, fez o reduce, lembrando que atual mais acum é uma soma, então a ordem dos fatores não vai fazer diferença, porém no parâmetro é bem importante, a ordem dos parâmetros importa, então o acumulador tem que sempre ser o primeiro parâmetro e o atual o segundo parâmetro. Mas na hora que fizemos a conta dentro da função inverteu, não tem problema, que fica mais fácil de ler. Mas só lembrar que na hora dos parâmetros não podemos trocar a ordem.
+
+[14:00] Juliana: Eu fiquei bem satisfeita então com esse resultado, saímos de uma coisa bem hard coded no nosso primeiro exercício de média fazendo tudo por extenso, e agora estamos usando um reduce, que é um método do Java script moderno, para resolver a mesma coisa de forma bem mais bacana, bem mais curta, mais performática. Estou satisfeita. Não esquece de praticar bastante e nos vemos no próximo vídeo. */
+
+
+/* Faça como eu fiz: Estrutura do reduce()
+PRÓXIMA ATIVIDADE
+
+Durante a aula trabalhamos com o método reduce() para “reduzir” uma lista de números para um único valor. Este método trabalha com parâmetros um pouco diferentes dos outros que vimos durante o curso. Por isso, vamos destrinchar o exemplo da aula para entender melhor as partes do código.
+
+Em seu editor, crie um arquivo index.js e execute o seguinte código:
+
+const numeros = [43, 50, 65, 12]
+
+const soma = numeros.reduce((acum, atual) => atual + acum, 0)
+
+console.log(soma) //170COPIAR CÓDIGO
+O código acima é muito parecido com o que foi feito durante a aula. É importante notar que:
+
+1) O método reduce() está trabalhando com dois parâmetros. O primeiro é a função callback obrigatória para retornar o cálculo e o segundo parâmetro é um número que representa o valor inicial - no caso, 0.
+
+2) A função callback foi escrita diretamente dentro do reduce(), e esta função também está recebendo dois parâmetros, ambos obrigatórios: O valor acumulado e o valor atual.
+
+3) A função callback foi escrita na forma de arrow function; nesse caso, quando só temos uma linha de instrução dentro da função (atual + acum) não precisamos usar chaves e nem da palavra-chave return.
+
+Caso você tenha mais de uma linha de instrução dentro de uma arrow function, as chaves {} e a palavra-chave return voltam a ser necessários.
+
+Vamos reescrever o reduce() de uma forma um pouco mais extensa para separar melhor as partes do código:
+
+const soma = numeros.reduce(function (acum, atual) {
+ return atual + acum
+}, 0)COPIAR CÓDIGO
+Vendo o código acima, percebe-se melhor onde começam e terminam cada um dos parâmetros do reduce(): O primeiro parâmetro, uma função e o segundo, um número.
+
+Uma terceira forma de reescrever seria escrevendo a função callback fora do reduce():
+
+function operacaoNumerica(acum, atual) {
+ return atual + acum
+}
+
+const soma = numeros.reduce(operacaoNumerica, 0)COPIAR CÓDIGO
+O reduce() roda o loop no array “por baixo dos panos”, executando para cada elemento a instrução passada na função operacaoNumerica.
+
+No dia a dia, a forma que utilizamos no vídeo é a mais usual. Porém, durante seus estudos, você pode praticar da forma que achar mais clara.
+
+É importante lembrar que cada método pode aceitar receber parâmetros diferentes! Alguns são obrigatórios, outros opcionais. Consulte sempre a documentação da linguagem. */
+

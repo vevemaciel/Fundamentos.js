@@ -1,0 +1,32 @@
+Transcrição
+[00:00] Para esse projeto, vamos usar de base, por exemplo, uma plataforma de cursos online. E vamos trabalhar durante o curso com os usuários dessa plataforma. Então, uma plataforma de cursos pode ter usuários que são estudantes, usuários que dão aula, instrutores, professores, usuários que são admin, e cada um, cada tipo de usuário pode ter acesso ou não a coisas que podemos fazer em um sistema.
+
+[00:30] Então, por exemplo, usuários que são admin, normalmente têm acesso a tudo, podem deletar, podem criar. Professores podem criar cursos, quem é aluno, quem é estudante, pode só acessar um curso. Então, conseguimos pensar em qualquer sistema que envolva gerenciamento de usuários, tipos diferentes de usuários e o que esses usuários podem fazer no sistema.
+
+[00:52] Seria legal se pudéssemos tirar isso da cabeça, colocar em um papel, rascunhar quais seriam esses tipos de usuários e o que eles poderiam fazer. Existem algumas formas de fazer isso, uma delas é usando um diagrama específico, que chamamos de UML, que é Linguagem Unificada de Modelagem, uma forma de desenvolver diagramas, que usamos para desenvolver projetos em programação.
+
+[01:17] Vou deixar o material extra para vocês sobre o que é o UML. Mas para o nosso caso, eu já criei um diagrama, que descreve mais ou menos essa conversa que estávamos tendo, quais são os tipos de usuários que o sistema pode ter, o que eles podem fazer.
+
+[01:39] Existem vários tipos de UML, vários tipos de diagrama que podemos desenvolver de acordo com o nosso projeto, e no caso, o que eu usei foi um diagrama específico para classes. Então, através desse diagrama, é possível listar, tirar do campo das ideias qual seriam os tipos de usuários, isso serviria para qualquer classe que quisermos criar, qualquer modelo de objeto que quisermos criar.
+
+[02:08] Por enquanto, o que sabemos é que temos um usuário do nosso sistema, que pode ser estudante, pode ser professor. E cada usuário pode fazer determinadas coisas. O que todos os usuários têm em comum? Eles têm as propriedades de nome, e-mail, todo mundo tem que ter para contato, a data de nascimento, o campo role, que é o papel que esse usuário tem, ele vai ser estudante, vai ser professor, vai ser admin, e se está ativo no sistema ou não. Esse é só um exemplo, quando fizer nos seus estudos, você pode colocar as propriedades que você quiser.
+
+[02:52] E o que, além disso, todo usuário pode fazer no sistema, independente se é estudante, professor. Podemos pensar em algumas coisas. Então, podemos dizer que todos os usuários podem exibir suas informações se o sistema pedir, nome, e-mail, nós que definimos.
+
+[03:13] Existem outras coisas que um usuário de uma plataforma de cursos poderia fazer no geral, que seria, por exemplo, se matricular em um curso. Então, eu sou admin, eu quero me matricular em um curso, eu posso, eu sou estudante e é basicamente isso que eu posso fazer. Eu sou professor, quero me inscrever em outro curso para assistir, também posso.
+
+[03:31] Porém, vamos trabalhar por enquanto só com o exemplo que vamos fazer durante o curso, que é exibir informações. Isso, todos os usuários do sistema podem fazer, então nosso usuário padrão tem uma lista de propriedades e um método, um comportamento, algo que ele pode fazer no sistema, que é exibir as informações.
+
+[03:54] Mas já sabemos que temos pelo menos, 3 tipos de usuário. Tem um usuário que pode fazer tudo, o admin, tem um usuário com algumas permissões que chamamos de docente, professor, e o usuário geral. Vamos dizer, e isso não é uma regra, estamos definindo agora para o nosso projeto, cada projeto, de cada plataforma, pode ter regras diferentes, mas no nosso, nós vamos dizer que um usuário padrão tem só a permissão principal, ele só pode exibir as informações dele.
+
+[04:30] O restante dos usuários, por exemplo, decentes, professores, eles podem fazer algumas coisas a mais, no caso, ele pode aprovar um estudante, pode ver a nota, passou no curso, ele pode dizer que o estudante passou na matéria dele. Então, além do comportamento de exibiras informações, quem é docente pode também aprovar estudantes.
+
+[04:58] E o admin? Podemos dizer que ele não vai aprovar estudantes, vamos deixar isso restrito a quem tem o cargo de professor, mas os admins, podem, por exemplo, criar cursos. Então, eu sou professor, eu não vou dar o privilégio de criar curso aos professores, porque fica muito bagunçado, eu quero que só a pessoa que tem privilégios de admin só possa criar curso. É uma regra que eu defini. Como eu disse, cada sistema tem as suas regras, então isso não vai ter um padrão, isso vai ser definido caso a caso, literalmente.
+
+[05:33] Então, no final, eu tenho 3 tipos de usuário, meu usuário padrão, podemos encaixar os estudantes nesses usuários padrão, então o usuário padrão é o usuário estudante que só pode exibir as suas informações. A partir dele, nós temos usuários que são o tipo docente, roling docente e roling admin, que podem fazer algumas coisas a mais. Porém, no meu diagrama de classes, lembrando que a intenção é termos um modelo, e a partir desse modelo, expandimos, tiramos objetos.
+
+[06:10] Então, docente e admin não precisam ter, novamente, na listagem deles, nome, e-mail, nascimento, essas coisas, porque eles vão sair do nosso usuário padrão, e a partir do nosso usuário padrão, damos privilégios extras para o docente, damos privilégios extras para o admin.
+
+[06:34] Então essa é a base, esse diagrama de classes vai ser a base de onde vamos começar a trabalhar para criar os nossos primeiros objetos. Então temos um usuário, um objeto usuário, uma classe usuário que estou chamando de user, ela tem um nome, ela tem propriedades e tem comportamentos. A partir dessa classe, então temos outras duas classes, admin e docente, que saem de usuário e vão ter a mesma estrutura, porém, com privilégios a mais que vamos definir.
+
+[07:10] Esse é um diagrama específico para classes, então, como eu disse, tem alguns outros, e agora que já sabemos mais ou menos, já tiramos da cabeça e passamos para o “papel” por onde vamos começar a trabalhar com os nossos objetos, podemos começar a rodar. Então vamos lá.

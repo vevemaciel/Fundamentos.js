@@ -16,7 +16,7 @@ console.log(typeof texto)
 // conversão explicita
 
 Number()
-String?()
+String()
 
 /* Transcrição
 [00:00] Ju: Nesse vídeo, nós vamos ver mais uma característica que é do JavaScript e é diferente da maior parte das linguagens que trabalhamos comercialmente, que é os dois iguais, os três iguais, que já pincelamos nos vídeos anteriores, que são operadores de comparação.

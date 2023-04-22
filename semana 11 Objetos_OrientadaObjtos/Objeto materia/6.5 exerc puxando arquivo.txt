@@ -1,0 +1,25 @@
+Puxando de um arquivo
+PRÓXIMA ATIVIDADE
+
+Digamos que temos um arquivo do tipo JSON e queremos resgatar o conteúdo salvo em uma determinada propriedade a partir do seguinte arquivo:
+
+Arquivo lutador.json:
+
+{
+  "nome": "Leandro Macedo",
+  "esporte": "Jiu Jitsu",
+  "altura": 1.65,
+  "lutas": 12,
+  "vitorias": 7,
+  "categoria": "Peso pena"
+}COPIAR CÓDIGO
+Após analisar o arquivo acima, marque a alternativa correta que contém um código que adquira as informações deste arquivo e quando executado mostre no terminal o valor da propriedade altura. Para isso, considere que o seu código e o arquivo JSON estão no mesmo diretório:
+
+
+Podemos escrever no arquivo leitura.js o seguinte código:
+
+const lutador = require("./lutador.json");
+
+console.log(lutador.altura);
+
+Isso mesmo! Utilizamos o require() para ler os dados,salvamos na variável dados e em seguida mostramos na tela com um console.log().

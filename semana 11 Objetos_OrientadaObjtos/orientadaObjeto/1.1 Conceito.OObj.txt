@@ -1,0 +1,132 @@
+
+Transcrição
+[00:00] Mas antes de começarmos a meter a mão na massa, meter a mão no código, vamos entender um pouco melhor o que são esses paradigmas de programação, o que queremos dizer exatamente quando falamos de programação orientada a objetos. Então vamos lá.
+
+[00:16] O que são paradigmas de programação? Abordagens sobre como resolver problemas de programação, baseadas em uma teoria ou um conjunto de princípios definidos. Então vamos lá, vamos traduzir isso. Um paradigma de programação se baseia normalmente em alguma teoria matemática ou computacional ou os dois, desenvolvida para resolver determinados problemas de programação de determinada forma.
+
+[00:47] Cada paradigma de programação tem o seu conjunto de regras, podemos dizer assim, e essas regras cobrem a forma como os dados são tratados, a organização do sistema, a forma como o código é escrito, a arquitetura, entre vários outros aspectos. Existem mais de 20 paradigmas de programação estudados até hoje, e eles funcionam de forma isolada ou em combinação, combinados uns com os outros.
+
+[01:14] Por exemplo, temos paradigma imperativo, paradigma relacional, declarativo, alguns deles, o orientação a objetos, o objetos é um deles, mas também o que chamamos de programação estruturada, eles derivam do mesmo, que é o imperativo. Já a programação funcional deriva de outro, que é o declarativo.
+
+[01:39] O relacional, nós o relacionamos muito a estruturas de bancos de dados, por exemplo os bancos de dados relacionais. Então, os paradigmas são como guarda-chuvas. Então temos o imperativo, com alguns outros paradigmas de programação embaixo dele.
+
+[01:59] Nesse curso, vamos falar especificamente de orientação a objetos, mas vamos deixar um material extra sobre outros paradigmas de programação para você dar uma olhada.
+
+[02:09] Então vamos lá, orientação a objetos. “Princípio de espelhar o mundo real através de uma estrutura de objetos com características e ações, que interagem uns com os outros”. Traduzindo, a programação orientada a objetos, que é o que vamos ver durante o curso, ela parte da premissa de aproximar a modelagem de código, uma modelagem dos nossos produtos de softwares, dos nossos projetos, com um “mundo real”.
+
+[02:37] Ou seja, as partes do sistema são estruturadas como objetos, esses objetos tem características e tem comportamentos, que vamos chamar de propriedades, que são as características de um objeto, por exemplo, uma caneta, uma caneta tem cor da tinta, uma caneta tem cor, tem tipo da ponta e ações, que vamos chamar durante o código, de métodos, que é uma caneta pode fazer, ela escreve, algumas delas podem apagar a tinta, não, podemos inventar.
+
+[03:15] E esses objetos, assim como na vida real, eles interagem uns com os outros. A estrutura central da orientação a objetos é o que chamamos de classe, classe é um modelo para criação de objetos, ou seja, é um molde, a classe caneta é um molde de onde saem todas as canetas, sai caneta azul que escreve de ponta cabeça, sai a caneta verde com ponta fina. Essa é a base da programação orientada a objetos e vamos ver bastante isso durante o curso, vamos ver com um pouco de detalhe como esse lance de classes e moldes de objetos funcionam.
+
+[03:53] Quando falamos em objeto, em código, temos que realmente abstrair coisas da vida real. Então, por exemplo, temos um gato, o gato ele existe no mundo real, ele não é uma coisa, é um ser, mas você deve ter pegado a ideia. Qual o propósito da orientação a objetos nesse caso? De transformar esses aspectos da vida real, ou seja, um produto, uma pessoa, um processo, uma doença, um animal, e transformar isso em software.
+
+[04:24] Então, essa abordagem visa aproximar o software, que é uma abstração lógica do mundo, dos problemas que o software tem que resolver. Como assim?
+
+[04:35] Para abstrairmos um gato, por exemplo, transformar um gato em código, seguindo os princípios da orientação a objetos, começamos dividindo em duas grandes partes, as primeiras são as características desse gato, ou seja, o que chamamos de propriedades.
+
+[04:50] E essas propriedades descrevem normalmente um objeto, o que o objeto é, então pensando em um gato, o gato tem pelagem, tem um peso, tem idade, tem o nome que damos para ele, tem se é fêmea ou se é macho e o status de saúde, se é castrado, se é vacinado, se tem algum problema de saúde. Então, basicamente, descrevemos o que faz um gato, quais são as características dele.
+
+[05:19] E a outra grande parte são os comportamentos de um gato. Então, assim como um objeto pode ser descrito de acordo com as suas características, com as suas propriedades, ele também tem comportamentos. Então, no caso do gato, o gato mia, o gato come alguma coisa, podemos definir o que o gato come, o gato dorme, ele se limpa, se lambe, ele brinca com bolinha, brinca com laser, brinca com fitinha. Esses são os comportamentos de um gato. Assim como um gato tem comportamentos, pessoas, por exemplo, tem comportamentos.
+
+[05:56] E produtos, podem ter comportamentos? É uma coisa que vamos pensar na abstração, quando formos pensar o nosso produto, o que o nosso produto tem que fazer quando falamos em código, que é um pouco diferente da vida real, na vida real é um produto sozinho, não faz muita coisa, mas no código vamos ver que às vezes eles fazem.
+
+[06:13] Então, se transferíssemos esse exemplo do gato para o JavaScript, podemos usar um objeto literal. Lembrando, um objeto literal é um objeto único, tem seus próprios valores dentro dele, que são dados, dados do tipo string, dados do tipo booleano, tipo número, etc. Então, um objeto gato tem uma propriedade nome, damos um nome para o nosso gato, tem uma data de nascimento, que definimos qual é a idade dele, tem um tipo de pelagem, podemos dizer se é castrado, se é vacinado, se é vermifugado, podemos colocar o telefone de contato de quem é o tutor.
+
+[06:53] E esses valores dessas propriedades são dados, isso é muito importante, são dados literais, no sentido computacional da palavra. Valores como número, que então, se o gato e castrado, é true, um booleano, que é o true ou false. O resto no meu exemplo são strings, uma string de texto com o nome, o string de texto com a pelagem, o string com a data de nascimento.
+
+[07:20] E além das características, tem aquela parte do tal do comportamento. Então o gato faz coisas, o gato mia, o gato brinca. E traduzimos isso em código, utilizando o JavaScript, assim como as propriedades podem guardar características de qualquer coisa da vida real, para determinarmos comportamentos, fazemos isso através de funções. Então o nosso gosto pode ter uma função, a função miar, dentro do nosso objeto, e essa função faz um console.log. Gato não faz isso na vida real, mas o nosso gato de código vai fazer.
+
+[08:03] Então, quando determinamos as funções dentro de um objeto, elas servem justamente para dizer quais são os comportamentos desse objeto que estamos descrevendo. E elas são executadas dentro do contexto desse objeto. Qualquer função que é executada dentro do contexto de um objeto, nós chamamos de método. E é dessa forma que vamos nos referir durante o curso, sempre que falarmos de métodos, estamos falando de funções que são executadas no contexto de um objeto.
+
+[08:39] Então, a função miar, que devolve um console.log(“miau”) é executada no contexto do meu objeto literal gato, que então tem as outras características, nome, nascimento.
+
+[08:52] E já começamos a ver como abstraímos conceitos da vida real em objetos e criamos aqui na tela mesmo um objeto literal que descreve um gato e tem características e comportamentos. Mas e se temos mais de um gato, pensando, por exemplo, em uma clínica veterinária que vai atender vários gatos, vários cachorros, papagaios, não dá para termos um modelo como um objeto literal que tem um nome, meu objeto gato só pode ter uma propriedade nome, só pode chamar churrumina, só pode chamar chuchu.
+
+[09:28] E como fazemos, então? Criamos modelos de objetos. Então, por exemplo, se eu tenho dois gatos, eu tenho que criar dois objetos diferentes, um para cada gato. Poderia fazer da seguinte forma, poderia ter um objeto que eu chamo de gato 1, que é a gata Churrumina, e eu tenho o objeto chamado gato 2, e eu tenho outro gato, que é o Enim, que nasceu no dia 25/01/2021, que é creme, que também está vacinado.
+
+[09:57] Porém, uma das primeiras coisas que aprendemos em programação é a importância de não repetir e de reaproveitar código. Então já sabemos que se começarmos a criar um monte de variável para guardar informação de vários gatos, não é viável, não é prático e não faz nem sentido, se formos parar pra pensar em como que um suposto sistema de uma clínica veterinária ou qualquer lugar funciona. Ou qualquer sistema que gerencia usuários, não é viável, não faz muito sentido criar um objeto para cada usuário, um objeto para cada gato e ser um objeto literal.
+
+[10:39] Como resolvemos? O ideal é termos esse modelo que estamos falando, que se reflete no objeto ou na entidade, que é o que queremos criar. Então, se fossemos criar um objeto modeloGato, ele teria um nome, que seria do tipo string, ele teria um nascimento, que ia ser um outro tipo string, a pelagem que seria outro tipo string. O status é um objeto, dentro desse objeto temos 3 outras propriedades, a propriedade castrado, que é booleano, vacinado, que é booleano, vermifugado, que é booleano, e por aí vai, com as características do objeto que você quer criar.
+
+[11:18] Então, essa é a base da estrutura da orientação a objetos, que é abstrair conceitos da vida real e transformar esses conceitos da vida real em estruturas de código, que combinamos depois umas com as outras, reaproveita vários contextos e vai criando nossos objetos. E cada objeto vai refletir. Eu posso ter um modelo para criar gatos, que a partir dele eu crio vários gatos, quantos gatos minha clínica veterinária precisar.
+
+[11:50] E eu também posso fazer isso com regras de negócio e com aspectos mais abstratos também da vida, por exemplo, uma clínica veterinária, poderíamos criar uma classe, que é um modelo, poderíamos criar um modelo doença. A partir dele, conseguimos tirar vários objetos que são doenças de gato, doenças de cachorro, o que a doença faz, qual é o cadastro da doença, qual é o remédio.
+
+[12:16] Então, não apenas coisas do mundo físico, mas também coisa do mundo abstrato. Então, tudo isso no final, na orientação a objeto, assim como as regras de negócio também do seu sistema, vira objeto.
+
+[12:30] Então, a partir de um modelo, criamos dois gatos. Então nosso modelo gato, que tinha a string nome, a string data e a string pelagem, a partir desse modelo conseguimos extrair dois objetos diferentes, para dois gatos diferentes, e agora temos uma lista de objetos gato. Essa lista pode crescer, minha clínica veterinária pode ter mil clientes gatos, podemos criar a partir desse modelo uma lista com um monte de objetos que tem a mesma estrutura, que tem as mesmas propriedades, e todos se referem a gatos diferentes.
+
+[13:08] Cada uma dessas cópias que criamos a partir de um modelo, a partir de uma classe, nós chamamos de instâncias, então toda vez que criamos um novo objeto, estamos instanciando um novo objeto, criamos uma nova instância de uma classe.
+
+[13:25] Então, claro que tem muito mais coisa envolvida na programação orientada a objetos, o que vamos fazer a partir de agora no curso, é investigar e ver cada um dos conceitos principais, os princípios da orientação a objetos, que são o conceito de classe, objeto, no objeto vamos trazer o que já sabemos do JavaScript, herança, polimorfismo e encapsulamento.
+
+[13:57] Então, esses são meio que os 5 princípios da orientação a objeto, e entendendo esses 5 princípios, conseguimos evoluir dos nossos projetos. Então, vamos lá.
+
+/* Transcrição
+[00:00] André: Olá pessoal bem-vindos de volta, nesta aula começamos a falar um pouco sobre orientação a objeto, ou OO, um termo que você vai escutar bastante, então vamos começar a falar um pouco sobre objeto dentro do JavaScript.
+
+[00:15] Então a principal ideia do orientação a objeto, ele é um paradigma de programação, ele é um modelo, então é uma maneira de você programar, existem diversas maneiras, programação funcional, enfim que você pode utilizar também em diversas linguagens, então esse é o modelo, é um estilo que você tem para programar, não é uma regra absoluta, você pode usar outros modelos também, que você se achar mais confortável. Mas a orientação a o objeto é muito utilizado hoje, não é Ju? Correto?
+
+[00:45] Juliana: Correto.
+
+[00:46] André: Então várias linguagens implementam orientação a objeto, o JavaScript também, então a principal ideia da orientação a objeto é trazer para o código conceitos e ideias que vemos no dia a dia, no mundo real, que nem fizemos nos exemplos das aulas anteriores, modelamos, pegamos informações de uma pessoa, a pessoa existe no real, então quantas informações da pessoa eu preciso, nome, CPF, e-mail, então isso pegamos essas informações e transforma em código, então esse conceito que são objetos, estão, que existem no dia a dia, no mundo real, estamos transportando para computação, para o código.
+
+[01:29] André: Então a ideia é pegar as informações do mundo real e jogar para dentro computador, dentro da codificação, dentro da linguagem, correto Ju, é isso ai?
+
+[01:38] Juliana: Correto, então pode passar?
+
+[01:42] André: Pode passar.
+
+[01:43] Juliana: Então a nossa pessoa transferimos tudo, pessoas, xícaras, carros, transformamos em objetos dentro da linguagem, e para conseguirmos abstrair melhor e trabalhar com esses conceitos.
+
+[01:57] André: É isso ai, outro conceito importante em orientação a objeto é o conceito de classe, então uma classe, os objetos que criamos até agora, criamos objetos literais, ou usando construtores naquela maneira de função no JavaScript, mas uma maneira que temos também que é meio que padrão a orientação a objeto, é você utilizar classes, que são modelos para criação de um objeto.
+
+[02:24] Então na classe vamos definir as propriedades que precisamos, que identificamos do mundo real, que precisamos trazer para o mundo computacional por assim dizer, e para modelarmos na codificação depois, para codificar depois.
+
+[02:36] Então uma classe ela vai definir para nós as propriedades, as informações que precisamos, e os comportamentos de um determinado objeto, que são os métodos que chamamos.
+
+[02:54] Então aqui nesse slide, nessa parte específica, temos aqui um exemplo da codificação de uma classe pessoa dentro do JavaScript, então definimos a palavra reservada class, mais outra palavra reservada da linguagem, então class, a definição do nome da classe, que é chamada Pessoa, então class Pessoa, definimos também um construtor que vai ser aquela função que você invoca, dá um new no objeto para criar um objeto na codificação? Que vamos ver um pouco mais pra frente, você chama o construtor e no construtor você passa as propriedades que você quer, que você precisa para construir aquele objeto.
+
+[03:34] Então Pessoa recebe como construtor um nome, sobrenome, cpf, e-mail e assim eu vou definir depois um objeto no computador, na programação.
+
+[03:46] Então continuando aqui dois conceitos importantíssimos quando falamos de classe, orientação a objetos, são conceitos de atributos e métodos, então uma classe ela vai definir um modelo para você criar um objeto, ou diversos objetos na memória do computador na execução do programa do seu sistema, enfim, então uma classe ela vai ser definida por atributos, que são as características que preciso, que são importantes para definir aquele objeto, a criação dele.
+
+[04:13] Por exemplo, no exemplo anterior que fizemos e estar programando com JavaScript, estamos usando o cenário bancário, então criamos um objeto cliente que ele tem algumas características importantes para aquele modelo de negócio que estamos tentando programar, que é um nome, e-mail, cpf, são as características de um cliente, então definimos isso na classe, os atributos.
+
+[04:37] E os métodos são os comportamentos que é o que aquele objeto pode realizar dentro do sistema, então de novo no exemplo bancário, tínhamos a função depositar, depositar poupança e enfim, então são comportamentos que esse objeto tem, são os métodos que definimos para ele, então uma classe, resumidamente, ela vai definir os atributos e os comportamentos e os métodos de um objeto.
+
+[05:07] Então continuando nosso exemplo da codificação de JavaScript, de orientação a objetos usando classes, definimos a classe pessoa, definimos no construtor os atributos dessa classe, e aqui definimos um comportamento para a pessoa, que é exibir nome completo, que é um método, uma função no JavaScript, então eu defini os atributos do construtor e os métodos, logo embaixo em exibir nome completo.
+
+[05:38] Então continuando aqui o conceito de herança que é um conceito importante na orientação a objeto, e que começamos a ver com a questão do protótipo, prototype, dentro do JavaScript, herança é um mecanismo, é uma maneira que temos, que vai permitir que uma classe que definimos ela herde características e comportamentos de uma outra classe, uma classe base.
+
+[06:04] Então é um mecanismo importante que nos permite trabalhar com o conceito de reaproveitamento de código, e isso é muito importante para nós que programamos, não precisa “reinventar a roda” toda vez, eu já posso definir um lugar e a medida que eu preciso incrementar o comportamento, atributos, eu vou definindo isso daí através dessa hierarquia, através da herança.
+
+[06:29] Então aqui eu defini um código de JavaScript também onde eu trabalho com herança dentro do JavaScript, nesse conceito de orientação a objeto, então foi definida a class Programador que ela extends da classe Pessoa, então esse extends também é uma palavra reservada, que no JavaScript para nós vai significar herança, eu estou herdando, todas as características da pessoa, então a classe Programador ela herda de Pessoa.
+
+[06:59] Então defino também um construtor para esta classe Programador, passando as informações que eu preciso, como ela herda de pessoa, eu uso também a palavra reserva super() que faz referência aquela, nas aulas anteriores que já vimos, sobre aquele call, então eu estou chamando da classe Pessoa, o construtor da classe Pessoa para dentro do construtor da classe Programador.
+
+[07:24] Então passando as informações que eu preciso para construir uma pessoa, mais a informação que eu defini, que é específica de programador, que no caso é linguagem, então definimos construtor passando as informações que precisa, mais a palavra reservada this definindo o que é informação somente o que é do programador, a propriedade linguagem.
+
+[07:46] Objeto, estamos falando de programação orientada a objeto, um objeto ele é uma instância de uma classe, então o que que isso quer dizer? Quando eu dou um new, uso a palavra reservada new, eu estou criando um objeto na memória, criando uma Instância dele na memória do meu computador, na memória que vai executar meu sistema, e a partir do objeto que eu vou executar os comportamentos que o objeto pode fazer, realizar.
+
+[08:12] Então definimos em cliente, defini em programador, alguns comportamentos, e eu tenho acesso a esse comportamento, e a esses atributos, essas propriedades desse objeto no momento em que eu instancio ele, então tem uma instância dele na memória, eu consigo trabalhar no meu sistema com esse objeto.
+
+[08:31] Então vamos resumir aqui esses conceitos de orientação a objeto, então a OO, orientação a objeto, é um modelo, é um estilo que se tem para programar, existem outros estilos mas ele é muito utilizado no mercado, em qualquer, em vários momentos você vai se deparar com ele, a maioria das linguagens implementam a orientação a objetos.
+
+[08:54] Juliana: Também conhecemos esse modelo como paradigma de programação, então é um paradigma orientado a objeto, uma palavra bonita, difícil, então o que mais que temos?
+
+[09:07] André: Então na OO, orientação a objeto, a ideia é transformar coisas do mundo real para codificação, para modelar um sistema bancário, quais as informações que existe no mundo real, que existe no banco que eu preciso colocar no código? Então a ideia é essa.
+
+[09:25] Então uma classe ela é formada por atributos e métodos, as características e os comportamentos, que esse objeto no mundo real tem, e isso precisa ser refletido no meu sistema também.
+
+[09:40] Um objeto é uma instância de uma classe, então ele é uma instância de uma classe na memória, e é o objeto que realmente vai executar todas as funções que meu sistema precisa.
+
+[09:53] Juliana: Então foi um resumo aqui da nossa introdução à orientação a objeto, as classes em JavaScript, elas surgiram no ES6, elas não existiam anteriormente em JavaScript, o que fizemos anteriormente com funções era a forma que se fazia para usar o paradigma de orientação a objetos em JavaScript antes do acréscimo da palavra chave classe, porque não existia antigamente na linguagem.
+
+[10:24] Até hoje, por trás, por baixo dos panos, que falamos, o JavaScript utiliza funções para gerenciar classes, chamamos as classes de JavaScript quando isso acontece de açúcar sintático, é uma expressão que você pode ter trombado com ela também, ou de synthetic sugar, significa que classe em JavaScript é uma palavra que adicionaram na linguagem para que quem já programava orientada objeto, ficasse mais confortável em utilizar a linguagem.
+
+[10:53] Então o pessoal já estava super acostumado a trabalhar com classe, com extends, com construtor, com super, então para quem veio de outras linguagens, programar melhor em JavaScript foi acrescentado em 2015, a sintaxe de classe, mas por baixo dos panos o JavaScript, transforma tudo isso em função de uma forma muito similar com que vimos anteriormente.
+
+[11:18] Então agora que o André já debulhou para nós orientação a objetos, podemos praticar mais um pouco com esse paradigma, para ver como isso funciona na prática, então nos vemos no próximo vídeo.
+
+[11:29] André: Até o próximo vídeo. */

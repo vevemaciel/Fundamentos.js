@@ -1,0 +1,7 @@
+
+Para saber mais: require
+PRÓXIMA ATIVIDADE
+
+Neste curso utilizamos uma função, chamada require(), que é bem presente no Node.js . Esta função nos permitiu passar o caminho de um arquivo terminado em .json para obter o conteúdo de um arquivo do tipo JSON. Em cursos posteriores, iremos ver que essa função também pode ser utilizada para reaproveitar códigos que estão em outros arquivos, também chamados de módulos.
+
+Caso tenha interesse de aprofundar seus conhecimentos, o MDN tem um artigo explicando os módulos em JavaScript e a documentação do Node.js também elabora mais sobre o tema e o uso específico que fizemos durante a aula.
