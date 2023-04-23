@@ -10,23 +10,23 @@ Procedural
 Orientado a objetos
 Um exemplo que mostra o paradigma imperativo é a implementação da seguinte função que recebe um vetor e retorna outro vetor com cada um dos valores dobrado: */
 
-function dobra(vetor){
+/* function dobra(vetor){
     let resultados = [];
     for (let i = 0; i < vetor.length ; i++){
         resultados.push(vetor[i] * 2);
 }
-return resultados;
-}
+return resultados; 
+}*/
 /* Podemos notar que passamos as instruções de como percorrer o vetor, qual operação fazer e o que devemos adicionar ao resultado.
 
 Uma outra categoria de paradigma é o declarativo. Podemos dizer que uma característica dele é expressar a lógica de um processo sem descrever o seu controle de fluxo. Ou seja, é associado ao “o quê” uma tarefa vai resultar ou retornar. Um paradigma que pode se encaixar nessa categoria é o paradigma funcional.
 
 Uma implementação declarativa do mesmo problema de dobrar os valores de um vetor pode ser feita da seguinte forma: */
 
-function dobra(vetor){
+/* function dobra(vetor){
     return vetor.map((item) => item * 2);
     }
-
+ */
  /* Podemos observar que não foi necessário explicitar como iterar sobre o laço de repetição ou atribuir os novos valores.
 
 No cotidiano temos diversos outros exemplos de afirmações que podem ser consideradas declarativas, como arquivos HTML: */

@@ -1,0 +1,36 @@
+/* 
+É a possibilidade de, por exemplo, uma subclasse de user, no caso do nosso projeto temos a classe user e ela tem duas subclasses que herdam dela, Admin e Docente. Então polimorfismo é a possibilidade dessas subclasses usarem um método, então, por exemplo, exibirInfos é um método que todas as subclasses trazem com ele. Então Admin pode usar exibirInfos, Docente também pode usar. */
+
+
+
+/* Transcrição
+[00:00] Chegamos ao último dos conceitos principais de orientação a OH, que vamos ver durante o curso, é o polimorfismo. O que é o polimorfismo?
+
+[00:11] É a possibilidade de, por exemplo, uma subclasse de user, no caso do nosso projeto temos a classe user e ela tem duas subclasses que herdam dela, Admin e Docente. Então polimorfismo é a possibilidade dessas subclasses usarem um método, então, por exemplo, exibirInfos é um método que todas as subclasses trazem com ele. Então Admin pode usar exibirInfos, Docente também pode usar.
+
+[00:43] Então, eles podem utilizar essa classe com o mesmo nome, com a mesma assinatura, já vamos ver o que é uma assinatura de método, porém, internamente, esse método pode ter um comportamento diferente. Então, eu posso dizer que o método exibirInfos existe de certa forma em user, ele tem certo comportamento, porém, no caso de Admin, eu quero que exibirInfos tenha um comportamento um pouco diferente, no caso pode retornar somente nome.
+
+[01:20] No caso de Admin, eu não quero que retorne esse ativo, não quero que retorne o role, ou quero que retorne somente o nome e qualquer role. Então, o método é o mesmo, mas o comportamento interno dele é diferente. Isso é o que chamamos de polimorfismo.
+
+[01:35] Por que eu falei de assinatura de método ou assinatura de função? Porque a assinatura serve para identificarmos qual é o método e fazemos isso através do nome dele, no caso, exibirInfos, e examinando quais são os parâmetros dele. No caso, exibirInfos não tem nenhum parâmetro, tudo bem, ele é identificado pelo nome e pelo fato de que ele não tem nenhum parâmetro.
+
+[02:03] Ou, se tivesse, por exemplo, parâmetro nome, parâmetro e-mail, a assinatura desse método seria esse conjunto que são os parâmetros que ele recebe e o nome do método.
+
+[02:16] Mas por que eu tenho que fazer isso? O método já não tem um nome? Já não é suficiente? O que acontece é que algumas linguagens de programação podemos ter mais de um método com o mesmo nome, não é o caso do JavaScript, mas a assinatura de função serve para identificarmos qual é o método, eles podem ter o mesmo nome, mas vão fazer coisas diferentes, mas no caso do polimorfismo, temos que manter a assinatura. Então, o método tem que ter o mesmo nome e receber ou não, os mesmo parâmetros só o que muda é o comportamento interno dele.
+
+[02:52] Na verdade, já estávamos utilizando o polimorfismo anteriormente, meio que sem saber. Porque, se formos ver como está feito o construtor da classe docente, por exemplo, o construtor recebe os mesmos parâmetros de user, porém, o role, estabelecemos o valor dele como Docente, então já reflete essas diferenças, embora sejam os mesmos parâmetros recebidos no construtor, ou seja, a classe vai ter que na hora que ela foi instanciada vai ter que passar os mesmos parâmetros, mas existe uma diferença com relação a user, porque o role agora é docente.
+
+[03:40] Então, se testarmos a nossa classe docente, eu vou chamar no “index.js” uma instância dela com const novoDocente = new Docente(‘Guilherme’, ‘g@g.com’, ‘2021-01-01’). Vou criar essa nova instância e vou pedir o tal do exibirInfos do nosso console.log(novoDocente.exibirInfos()).
+
+[04:40] Vamos testar no console, node index.js. Tem um erro de formato não válido. Então, na aula anterior fizemos uns testes com os getters e setters e barrou em um erro, eu vou comentar o que fizemos na aula anterior, limpar o console, testar novamente.
+
+[05:01] Agora, sim, Guilherme entrou no nosso sistema como Docente. Então na prática, já estávamos usando polimorfismo, porque temos uma mesma função construtora, que recebe os mesmos argumentos, ou seja, tem a mesma assinatura, mas na prática, não fazem a mesma coisa. Então, a mesma função trata um caso específico de user, podemos dizer assim, e dá para fazer a mesma coisa, já tínhamos feito, inclusive, a mesma coisa com Admin.
+
+[05:31] E fizemos também a mesma coisa com exibirInfos. Então pegamos uma função, um método, que tem a mesma assinatura, que no caso é a falta de parâmetros também conta, mas se tiver sem parâmetros, teria que ser os mesmos, mas internamente o método pode ter a lógica que quiser implementado, mas a assinatura tem que ser a mesma e o comportamento que modificamos.
+
+[05:57] E modificamos esse comportamento para adequar um método que já existe a alguma coisa específica que precisamos fazer. Então, essas modificações que fizemos, eles são exemplos do polimorfismo em ação. Então essa técnica de utilizar funções que tenham a mesma assinatura, porém, com comportamentos diferentes.
+
+[06:19] Então, polimorfismo é o último dos conceitos principais que vimos, vimos objeto, classe, herança, encapsulamento e agora, o polimorfismo. Para completarmos, antes de terminar, vamos dar uma olhada em alguns princípios de design, que vão justificar algumas coisas que fizemos durante o curso. Então, vamos lá.
+
+CONTINUAR LENDO
+ */

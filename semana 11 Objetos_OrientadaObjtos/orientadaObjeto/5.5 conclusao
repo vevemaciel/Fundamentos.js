@@ -1,0 +1,26 @@
+Transcrição
+[00:00] Chegamos ao fim deste curso de primeiros passos em orientação a objetos com JavaScript. Obrigada por ter me acompanhado até aqui, vamos dar uma olhada no que fizemos.
+
+[00:12] No começo, começamos vendo o que é orientação a objeto, um pouco do que são os paradigmas de programação.
+
+[00:18] Depois, passamos para o jeito JavaScript de fazer a orientação a objeto, entendendo o que são as funções construtoras, como o JavaScript faz orientação a objetos usando funções, o que são os protótipos, o que é o modelo de herança de protótipo, que é característico do JavaScript, depois passamos para as nossas classes, vendo o que são classes, o que é herança de classe, porque uma classe herda de outra classe.
+
+[00:48] Depois de vermos objetos, classes e herança de classe, passamos para encapsulamento, com encapsulamento conseguimos esconder e expor apenas o que queremos de métodos e de propriedades de uma classe, nós a protegemos. Depois, vimos também um pouco sobre polimorfismo, porque o polimorfismo existe, como ele funciona, como ele pode ser usado. E terminamos fazendo um passada sobre o que são os princípios de design de software do SOLID, o que é cada letra do acrônimo e o que ele significa e como aplicamos ou poderíamos aplicar isso em um projeto.
+
+[01:28] Agradeço novamente a sua participação, se você ainda não fez as atividades, não conferiu o material extra, volta agora que está tudo fresco na cabeça, e dá uma olhada, porque tem muita coisa, já falei durante o curso, mas eu sempre reforço, tem muita coisa para ver, muito material extra, muito conteúdo adicional, que vai te ajudar a encorpar nesse conhecimento, nesses primeiros passos em orientação a objeto. Nos vemos no próximo curso e até mais.
+
+0
+Próximos passos
+PRÓXIMA ATIVIDADE
+
+Parabéns por concluir a formação JavaScript para back-end!
+
+Para continuar avançando nos estudos, aqui está um link para formação 2 - Node.js com Express: criando APIs REST em Node com Express
+
+Com essa formação você vai:
+
+Aprender os conceitos e como funciona o protocolo HTTP.
+Criar uma API REST com Node.js e MongoDB.
+Aprenda a trabalhar com Sequelize ORM.
+Compreender e aplicar os conceitos fundamentais de segurança e autenticação em suas aplicações.
+Continue o ótimo trabalh

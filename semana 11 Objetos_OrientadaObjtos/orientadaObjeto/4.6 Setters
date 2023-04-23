@@ -1,0 +1,45 @@
+
+Transcrição
+[00:00] Já vimos os getters propriedades assessoras que utilizamos para pegar informações. Por que eu estou falando getter, propriedades getter, e não get, que é a palavra-chave que estamos usando no código? É porque a palavra-chave get existe no JavaScript, pode ser que exista em outras linguagens também, mas ela não existe em todas as linguagens de programação.
+
+[00:28] Porém, o conceito de getter, dessa propriedade assessora especial que serve justamente para você fazer o encapsulamento da classe e pegar um dado, o getter existe de outras formas, em outras linguagens que trabalham com orientação a objeto. E é por isso que acabamos falando getter, apesar da palavra-chave que usamos no código ser só get.
+
+[00:54] Então, já sabemos como pegar propriedades, vamos ver agora o setter, que é a palavra-chave set, que usamos para definir propriedades, para alterar propriedades que são privadas, de uma forma segura. Vamos lá.
+
+[01:10] Como todas as propriedades de user são privadas, não conseguimos mais alterar a propriedade nome, por exemplo, da forma que fazíamos com objeto normal, então na instância novoAdmin que tínhamos chamado anteriormente, não conseguimos mais chamar novoAdmin.nome = ‘Juliana’, já vimos que isso não é mais possível.
+
+[01:36] Mas conseguimos fazer isso agora que já temos um getter para pegar, podemos fazer essa parte de definir novos valores para uma propriedade, através de um setter. Então, embaixo de toda essa lista de gets que criamos, eu vou criar um novo método com a palavra set nome, e também vou chamá-lo de nome, o mesmo nome que eu dei para o get, já vamos entender o porquê disso.
+
+[02:11] E ele recebe uma propriedade, a propriedade vai ser um único parâmetro, que vai ser um novo nome, então set nome(novoNome) , e embaixo definimos como queremos seja feita essa substituição. Então no caso eu vou substituir this.#nome = novoNome.
+
+[02:37] Então lembrando, o get não aceita nenhum parâmetro e o set aceita apenas um parâmetro relativo a este único dado, que vai ser alterado, que vai ser definido usando esse setter. Vou salvar e fazer um teste no “index.js”, já temos o nosso novoAdmin criado, vou continuar com ele, e eu vou dar um console.log(novoAdmin.nome), que vai acessar através do getter a propriedade nome, trazer de volta para nós, e agora, como fazemos para usar o setter? novoAdmin.nome, lembrando que demos a mesma nomenclatura nome, tanto para o getter quanto para o setter.
+
+[03:28] E como isso funciona? Para atribuir um novo nome, para passar para o setter uma nova informação, chamamos novoAdmin.nome = ‘André’. E embaixo console.log(novoAdmin.nome), para chamar o getter e ver se trocou.
+
+[03:54] Então veja que a sintaxe, da mesma forma que a sintaxe de chamada do getter é como se fosse uma propriedade, no setter acontece a mesma coisa. E é por isso que também definimos o setter com o nome da propriedade que estamos trabalhando. Porque na hora que chamamos, na hora que executamos esse setter novoAdmin.nome =, passa o novo dado, no caso o novo nome da propriedade, da mesma forma que fazemos em objetos literais normais, quando queremos acessar uma propriedade e trocar o valor dela, usamos o igual.
+
+[04:31] Então, da mesma forma que fizemos com o get, o setter também trabalhar, nesse caso, imitando, ele é uma função, passamos parâmetros para ele, só que na hora de chamar, ele “imita” a sintaxe de uma propriedade, ao invés de ser chamado como uma função. Eu vou no terminal, limpar o terminal e executar “index.js” de novo.
+
+[04:59] Mostrou this.montaObjUSer, tem alguma coisa no código que ficou esquecida, vamos no nosso user. O exibirInfos, depois que criamos gets e deletamos o método privado montaObjUser, precisamos refatorar essa função. Agora, ao invés de ObjUser, nós voltamos a acessar nome, role, acessar as propriedades através do contexto atual, através do this. Só que agora, .nome, .email, .nascimento não se referem mais às propriedades, as propriedades agora estão marcadas com cerquilha, elas são privadas.
+
+[05:43] Ao que se refere this.nome, this.email, se refere aos getters. Então, o que está sendo feito dentro de exibirInfos está sendo chamado, executado o getter para todas essas propriedades, e através desses getters que montamos o retorno de exibirInfos
+
+[06:06] Então já refatoramos a função, vamos testar novamente. Funcionou o nosso setter, antes era Rodrigo e agora virou André, vamos voltar no código, então temos dois consoles, novoAdmin.nome, de quando foi criada a instância de Admin e novoAdmin.nome, utilizando o setter para passar uma nova informação e agora sim conseguimos trocar e chamar novamente com o getter novoAdmin.nome, e agora o nome é André. Então estamos vendo os getters e o setter em ação juntos.
+
+[06:45] Os setters também são superimportantes para, por exemplo, proteger uma propriedade de uma alteração crítica. Então o nome, temos feito tudo com o nome, alterar um nome é uma alteração muito crítica em um sistema, é uma alteração importante. Conseguimos, dentro do set criar toda uma lógica, a lógica necessária para fazer validações antes que o valor da propriedade nome seja realmente modificado.
+
+[07:14] Então vamos testar, por exemplo, eu vou colocar dentro do set um condicional, vou dizer if (novoNome === ‘ ‘) {, não podemos deixar o nome ser substituído por uma string vazia, então eu vou mandar só dar um throw new Error(‘formato não válido’), só para fazer esse teste.
+
+[07:50] Então, agora fizemos uma verificação, isso pode ser feito dentro do set, e se passar nas verificações, nas validações, altera o novo nome. Vamos testar novamente, eu vou tentar passar para dentro do nome, então criamos nossa instância, tudo certo, só que agora, para o setter de nome, novoAdmin.nome, ao invés de passar André, vou passar uma string vazia.
+
+[08:21] Vamos ver o que acontece, se ele vai lançar o erro para nós. Vou limpar o terminal. E lançou, new Error(‘formato não válido’), tudo certo. Então significa que a nossa validação está funcionando.
+
+[08:35] E o setter não serve só para alterar uma propriedade, mas ele também pode encadear ações, por exemplo, que podem ser necessárias quando alteramos uma propriedade. Então, supondo que quando altera a propriedade nome, precisa lançar um aviso a propriedade nome na tela, “a propriedade nome está sendo alterada”, seja lá o que for, também serve para isso. E toda essa lógica que envolve a modificação de uma propriedade pode ser feita dentro do setter.
+
+[09:06] Existem outros exemplos de validações que podemos fazer dentro do set, por exemplo, se um nome é recebido do input, cujo nome e sobrenome queremos separar essas duas informações, também dá para fazer isso dentro do set antes de fazer as alterações, vou deixar no material extra mais um exemplo de código utilizando o set para você testar durante os seus estudos.
+
+[09:35] Mas agora, eu pensei em uma coisa, uma vez que estamos usando setter, ainda precisamos do construtor da classe? Será que precisa? Porque o setter faz isso, chamamos um setter para definir um valor para a propriedade. Bom, precisa, porque as funções do construtor e a função do setter são coisas diferentes. O setter trabalha dentro do princípio de encapsulamento, então toda vez que definimos getters e setters, permitimos que só que o que está especificado por esses assessores esteja disponível para fora da classe.
+
+[10:14] E o setter é a única forma que existe no código de alterar um conteúdo que está dentro de uma classe. Vamos sempre pensar em casos críticos, por exemplo, alteração do nome de um cliente no banco, porque esse é um caso bem clássico de alteração crítica.
+
+[10:33] Ao contrário do construtor, quando usamos o construtor para instanciar uma classe, garantimos que todos os dados que são necessários para que o objeto que é gerado a partir da classe sejam passados. Então usamos o construtor para garantir que todos os usuários vão ter as informações necessárias quando a nova instância da classe for criada.

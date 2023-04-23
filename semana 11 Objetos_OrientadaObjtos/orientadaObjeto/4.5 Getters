@@ -1,0 +1,96 @@
+export default class User {
+    #nome
+    #email
+    #nascimento
+    #role
+    #ativo
+    
+    constructor (nome, email,nascimento,role,ativo =true) {
+        this.#nome = nome
+        this.#email=email
+        this.#nascimento =nascimento
+        this.#role= role || 'estudante'
+        this.#ativo =ativo
+    }
+
+    get nome(){ //getters
+        return this.#nome
+    }
+    get email(){
+        return this.#email
+    }
+    get nascimento(){
+        return this.#nascimento
+    }
+    get role(){
+        return this.#role
+    }
+    get ativo(){
+        return this.#ativo
+    }
+
+/*   //As funções getter, primeiro, elas nunca recebem nenhum argumento, elas só retornam o que está dentro dela. E muito importante, apesar de escrevemos ela com uma sintaxe de função, abrimos e fechamos parênteses, abrimos e fechamos chaves, dentro dessas chaves pode ter lógica de condicional. Então se precisarmos fazer if tem um nome, retornamos, if não tem um nome, retornamos o nome e fazemos outra coisa, pode ter tudo isso dentro. */
+     // [05:10] Agora podemos refazer o nosso exibirInfos de acordo com os princípios de encapsulamento que vimos. Mas antes eu vou deletar esse método montaObjUser, porque ele não vai ser mais usado, ele foi só para fazermos um exemplo, ele não vai mais ser necessário. */
+/* 
+    #montaObjUser(){ 
+        return({
+            nome: this.#nome,
+            email: this.#email,
+            nascimento: this.#nascimento,
+            role: this.#role,
+            ativo: this.#ativo
+        })
+    } */
+/*  
+    
+    
+    exibirInfos(){ // remove tbm daqui e volta ao original 
+        const ObjUser = this.#montaObjUser() 
+        return `${ObjUser.nome}, ${ObjUser.email},${ObjUser.nascimento}, ${ObjUser.role}, ${ObjUser.ativo}`
+    }
+}
+
+
+
+/
+
+Transcrição
+[00:00] Já vimos que existe toda uma questão de esconder atributos que não devem ser expostos para fora da classe, e esse é um dos conceitos principais da orientação a objetos, o conceito de encapsulamento. Sendo assim, existem funções específicas para fazer esse trabalho, para lidar com essa questão, servindo como portas de comunicação da classe com o restante do código.
+
+[00:29] E são esses métodos que definem quais atributos da classe podem ser expostos, como costumamos dizer, para fora dela, ou não, e de que forma eles podem ser acessados. São o que chamamos de propriedades acessoras, digamos assim, são propriedades acessors, ou getters e setters.
+
+[00:53] Vamos começar, eu já vou deletar o método nomeAdmin, porque já vimos que ele não está funcionando, e vamos criar o nosso primeiro acessor, vai ser do tipo get, um getter, uma função getter.
+
+[01:08] Mas não vamos criar esse getter em admin, e sim em user. Por dois motivos, de user que estão vindo as informações a partir de user, que é montado, que é construído, são construídas as propriedades da classe, e pegar o nome da pessoa é um método que pode ser compartilhado, pode ser usado por todos os tipos de usuário, então é interessante que possamos pegar todos os usuário de alguma forma, qual é o nome dele, sem prejudicar a propriedade, só pegar o nome dele e expor, e passar para fora da classe.
+
+[01:46] Então vamos lá. Para fazer isso, como utilizamos essas funções acessoras, o getter? Vamos usar uma palavra-chave, que chama get mesmo. E eu passo qual é a propriedade que eu quero acessar. Eu quero acessar a propriedade nome, então get nome() {. E a partir desse ponto, das chaves, vamos declarar o que queremos que retorne nesse getter, nessa função getter.
+
+[02:18] Eu vou pedir para retornar, return this.#nome. Então criamos a nossa primeira função getter, usamos a palavra-chave get antes do nome da função, do nome do método, isso faz com que esse método seja apenas leitura, só conseguimos get, só conseguimos pegar essa informação. Então vamos testar novamente no “index.js”, testar com esse Admin que criamos anteriormente para ver se esse método está sendo herdado corretamente, se estamos conseguindo acessar o getter que foi criado em user, a partir de Admin.
+
+[02:59] Então o novoAdmin já estava criado, podemos aproveitar o mesmo, então console.log(novoAdmin.nome), vamos acessar, ele tem que retornar. Eu vou comentar as outras chamadas, para o terminal ficar mais limpo. Vamos lá acessar node index.js.
+
+[03:21] Perfeito, retornou Rodrigo corretamente. Mas agora, vamos ver uma diferença nessa chamada que vimos. Essa é uma diferença importante na chamada do método e também na implementação do getter. As funções getter, primeiro, elas nunca recebem nenhum argumento, elas só retornam o que está dentro dela. E muito importante, apesar de escrevemos ela com uma sintaxe de função, abrimos e fechamos parênteses, abrimos e fechamos chaves, dentro dessas chaves pode ter lógica de condicional. Então se precisarmos fazer if tem um nome, retornamos, if não tem um nome, retornamos o nome e fazemos outra coisa, pode ter tudo isso dentro.
+
+[04:10] Porém, na hora de fazer a chamada, não chamamos novoAdmin.nome com parênteses como se fosse uma função, chamamos como uma propriedade sem os parênteses. E olha só que interessante, como por padrão demos a nomenclatura para o get o mesmo nome da propriedade, então, pelo lado de fora da classe, quem for acessar, acessa nome como se fosse uma propriedade mesmo.
+
+[04:46] Então a parte do código ou quem estiver rodando, que tem que acessar a propriedade nome do Admin, nem sabe, nem precisa saber que isso é um método getter, uma função, ela está acessando com a sintaxe de propriedade, como se estivéssemos fazendo anteriormente, que simplesmente entramos no objeto e acessamos a propriedade do objeto.
+
+[05:10] Agora podemos refazer o nosso exibirInfos de acordo com os princípios de encapsulamento que vimos. Mas antes eu vou deletar esse método montaObjUser, porque ele não vai ser mais usado, ele foi só para fazermos um exemplo, ele não vai mais ser necessário.
+
+[05:32] O que precisamos fazer antes de exibirInfos de refatorar o exibirInfos? Vamos precisar fazer um get para cada uma das propriedades. Então eu tenho o get nome, tenho o get email, que retorna return this.#email, a mesma coisa vai ser para todas as propriedades que quisermos que sejam acessadas por fora da classe. Vou dar uns copy spaces para ficar mais rápido.
+
+[06:07] Então get nome, get email, get nascimento, get role e get ativo. Então fizemos os outros getters para as outras propriedades.
+
+[Aula4_video3_imagem1]
+
+[06:36] Você pode perguntar se precisa fazer um para cada um. Sim, precisa, esse é um padrão, e tem alguns motivos para existir esse padrão. Primeiro, são motivos de boas práticas de orientação a objeto, esse conjunto de boas práticas é conhecido como SOLID, vai ter daqui a pouco um vídeo sobre o SOLID, um material extra sobre ele, e um desses princípios de boas práticas de orientação a objetos fala justamente sobre uma coisa que chamamos de responsabilidade única.
+
+[07:09] As classes devem ser especializadas em um assunto, e as propriedades são sempre uma coisa só, mas os métodos dentro dessas classes também fazem uma coisa só. Pode parecer estranho escrevermos todos esses códigos, todos esses gets, mas se formos pensar bem, isso evita uma coisa chamada acoplamento, quando um método faz muita coisa e, por exemplo, eu quero pegar só nascimento, se o get pegasse todos os dados juntos, quando fosse querer pegar só o nascimento, eu ia precisar refatorar, não ia conseguir. Ou seja, tenho muita coisa acoplada umas nas outras.
+
+[07:47] Além disso, o acoplamento dificulta a implementação de teste, fica mais difícil testar e mais difícil reaproveitar código. Então, se um método recebe muitas coisas e faz muitas coisas, fica muito difícil dele ser reaproveitado.
+
+[08:02] Mas vamos supor que eu não quero ter nenhuma propriedade privada nessa classe. Eu ainda poderia usar os assessores? Sim, é legal usar os assessores, por exemplo o get, mesmo assim. Um dos motivos é que é bom você ter um único ponto exposto, um único ponto onde você expõe propriedades, e por esse único ponto ela pode ser acessada e também modificada, vamos ver as modificações em seguida, e o que é útil inclusive para você conseguir debugar, porque você consegue limitar os pontos de onde as propriedades estão sendo acessadas de fora da classe e de que forma isso está sendo possível.
+
+[08:41] Então, o que fizemos foi criar um acesso, uma propriedade assessora, que falamos, um getter, usando a palavra-chave get, é um tipo de função especial, que é somente leitura, ela apenas retorna uma propriedade da classe. E dessa forma, concentramos todas as propriedades que queremos expor para fora da classe dentro dos gets e elas ficam isoladas do restante do código.
+
+[09:10] Além de get, existe um outro assessor que chama set, são os setters, que podemos usar para modificar propriedades. Vamos ver em seguida. */

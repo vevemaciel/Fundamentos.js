@@ -1,0 +1,42 @@
+Sobre orientação a objetos
+PRÓXIMA ATIVIDADE
+
+Durante o curso conhecemos os princípios básicos da orientação a objetos: objeto, classe, herança, encapsulamento e polimorfismo. Vamos relembrar tudo o que foi estudado?
+
+Marque as alternativas corretas:
+
+Selecione 4 alternativas:
+
+
+Polimorfismo é o princípio segundo o qual duas (ou mais) classes que herdam de uma superclasse podem executar métodos vindos dessa superclasse e que têm a mesma assinatura, porém comportamentos diferentes da superclasse da qual herdaram.
+
+Alternativa correta! Ou seja: É possível sobrescrever o comportamento de uma classe para que corresponda ao que for necessário para a subclasse, porém desde que mantendo a mesma assinatura do método herdado da superclasse.
+
+
+
+Alternativa correta
+O encapsulamento é o conceito de “esconder” propriedades e métodos para que não possam ser acessados por fora da classe, o que pode ser feito com o uso de atributos privados e propriedades assessors.
+
+Alternativa correta! Como vimos na aula 4, ambas as ferramentas trabalham em conjunto: os atributos privados evitam que propriedades e/ou métodos sejam acessados por outras partes do código, enquanto os assessors (getters e setters) expõem apenas as partes da classe que devem ser expostas, e de quais formas isso pode acontecer.
+
+
+
+Alternativa correta
+As classes em JavaScript foram implementadas a partir do modelo de herança de protótipo e podem ser consideradas como uma “abstração” deste conceito para tornar a experiência da programação orientada a objetos mais “palatável” (o que chamamos de “açúcar sintático” (syntatic sugar).
+
+Alternativa correta! Porém, apesar de serem como uma camada de abstração sobre os protótipos, as classes possuem algumas diferenças de implementação a nível de linguagem e também de performance.
+
+
+
+Alternativa correta
+O código abaixo representa um objeto sendo instanciado através de uma função construtora:
+
+function User(nome, email) {
+ this.nome = nome;
+ this.email = email;
+}
+
+const novoUser = new User('Ricardo', 'r@r.com')
+console.log(novoUser)
+
+Alternativa correta! Funções construtoras têm uma estrutura um pouco diferente das funções comuns (por exemplo, a sintaxe de atribuição de propriedades com =) e servem de modelo para criação de objetos através do operador new.

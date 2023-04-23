@@ -1,0 +1,42 @@
+Transcrição
+[00:00] Vamos continuar evoluindo no tema dos atributos privados e como utilizamos. Assim como podemos definir que certas propriedades não podem ser acessadas nem modificadas por fora da classe, o mesmo podemos fazer para métodos.
+
+[00:19] Se o método tem que fazer alguma lógica que é muito importante para o sistema e não queremos que ele seja acessado de fora nem receba parâmetros que podem bugar qualquer coisa, ou que as pessoas consigam retornar, ver o resultado retornado desse método retornado por fora da classe, também podemos tornar esse método privado.
+
+[00:39] Vamos fazer o seguinte? Para fazermos um exemplo, eu vou criar um método dentro de user, que vai ser um método privado, eu vou chamar esse método de monta objeto user, sempre a cerquilha no começo, para dizer que é privado, então #montaObjUser().
+
+[01:03] Ele não vai precisar receber nenhum parâmetro. E o que ele vai retornar? Eu vou pedir para ele retornar um objeto, então abro parênteses e chaves, então quando queremos que retorne um objeto direto, um objeto literal, passamos ele entre parênteses no return, então return ({.
+
+[01:26] Então eu vou pedir para retornar nome: this.#nome,, vou colocar vírgula depois, porque é um objeto literal que estamos montando, email: this.#email,, nascimento: this.#nascimento,, role: this.#role, e por último ativo: this.#ativo.
+
+[02:08] Montamos um objeto para ter acesso às propriedades privadas que estão dentro da classe. Então esse método #montaObjUser está declarado dentro da classe user, ele têm acesso às propriedades privadas que estão dentro da classe. Então, como é que testamos isso agora? Vamos no “Index”, já tem usuário Mariana que podemos usar, que já tinha sido instanciado anteriormente, e instanciei o nosso novo usuário e eu vou chamar o nosso console.log(novoUser.#montaObjUser()), e vamos executar no terminal, node index.js.
+
+[03:14] E ele deu um erro. Mas ele deu um erro como o esperado. Não declaramos montaObjUser como um método privado? Então faz sentido não conseguirmos executar esse método por fora da classe. Então, como fazemos? Se só tirássemos a cerquilha da frente de montaObjUser e rodasse novamente.
+
+[03:43] Eu esqueci de tirar da chamada do “Index”, então tirei a cerquilha da declaração da classe, tirei da chamada do console.log, vamos fazer de novo.
+
+[03:58] E eu consigo acessar normalmente. Mas isso não resolve o nosso problema, nós queremos ter um método privado que não possa ser acessado por fora da classe, porque ele tem informações importantes, informações sensíveis, então eu vou voltar com a cerquilha na frente de montaObjUser na classe.
+
+[04:17] Como fazemos para acessar esse método? Os métodos privados existem justamente para proteger lógicas internas da classe, entre outras coisas. E ser privado significa que ele só é acessado por dentro da classe. O que podemos fazer? Nós já temos um método público que é o exibirInfos, que manda as informações dos usuários para fora da classe.
+
+[04:45] Então, o que podemos fazer na nossa exibirInfos é uma pequena refatoração para dentro dela criar uma nova const objUser = this.#montaObjUser(). E a partir desse ponto, como exibirInfos é um método que está dentro da classe user, ele tem acesso a um método privado montaObjUser e eu consigo passar o retorno desse método, que é o objeto com todos os dados, consigo passar para dentro dessa variável objUser.
+
+[05:31] E agora, o meu retorno eu tenho também que fazer uma pequena modificação, ao invés de this.#nome, que é o que estávamos passando antes, agora vamos acessar nome, e-mail, nascimento, a partir desse objUser que estamos montando. Então não vai ser mais this, agora vai ser objUser., não vai ser mais #nome, #email, porque quando montamos objeto, as propriedades, só passamos sem ser privado, só passamos os nomes das propriedades, então não são mais métodos privados, tiramos a cerquilha.
+
+[06:17] E o que está sendo retornado, o que está sendo passado para fora de exibirInfos? Apenas os dados de um objeto, que foi montado por dentro da classe. Vamos testar novamente o exibirInfos? Então vou voltar no “Index.js”, ao invés de chamar #montaObjUser, continuamos chamando exibirInfos().
+
+[06:44] E vamos executar e ver se dá tudo certo. Vou limpar o console. Deu tudo certo. Ele nos trouxe o resultado do nosso exibirInfos com todas as informações que passamos, só que agora elas são acessadas por dentro da classe, com um método privado e esse método só é acessado por dentro da classe também, aí sim por um método público, que acessa o que precisa acessar e retorna só o que pode ser retornado, só o que deve realmente ser exposto para fora da classe.
+
+[07:22] Tudo certo, só que temos duas classes que herdam de user, a Admin e a Docente. O que acontece com essas outras classes? Vamos instanciar no nosso “Index.js”, vou criar const novoAdmin = new Admin(‘Rodrigo’, ‘r@r.com’, ‘2021-01-01’). E embaixo console.log(novoUser.exibirInfos()), vamos ver o que acontece. Vamos rodar no terminal.
+
+[08:06] Deu Mariana, então fiz alguma coisa errada. É porque eu pedi no console.log, ao invés de novoAdmin, eu pedi novoUser, aquela situação também que você deve ter visto eu fazer isso na tela e não teve como me avisar. Agora deve dar certo no terminal.
+
+[08:24] Agora sim, Mariana, m@m, Rodrigo, r@r, então, aparentemente está dando tudo certo. Mas, e se tentarmos, vou fazer um novo teste, vamos tentar usar alguma propriedade de user dentro de Admin. Então, lembrando que Admin através da superclasse vai herdar as propriedades de user, quando criamos um novo Admin. Vamos fazer o seguinte? Eu vou criar um método, vou chamar de novoAdmin() {, não vai ter parâmetro nenhum, só vai retornar return ‘${this.#nome}’.
+
+[09:10] Vamos ver o que acontece. Eu vou chamar, e ao invés de ir no terminal direto, eu vou voltar no “index.js” e vou chamar console.log(novoAdmin.nomeAdmin()), vamos rodar e ver o que acontece.
+
+[09:36] Ele deu erro de campo privado nome. Mas é porque dentro do construtor de Admin, realmente nós não declaramos nome com cerquilha, nome sem cerquilha, então. Vamos tentar. Vamos limpar o terminal e voltar.
+
+[09:54] undefined. Ou seja, campos privados são muito bons para evitar que outras partes do código acessem propriedades da classe, e é isso que queremos mesmo, só que eles protegem tão bem, que nem as subclasses, no caso Admin, docentes, que elas deveriam poder acessar a propriedade nome, nem elas conseguem mais acessar, porque está privado. Para isso, vamos precisar de um outro, que é um dos pontos principais do encapsulamento, que são os métodos acessors, que chamamos, seria assessores, no sentido de dar acesso.
+
+[10:34] Então, vamos ver como esses acessors podem nos ajudar a contornar esse problema. Vamos lá.

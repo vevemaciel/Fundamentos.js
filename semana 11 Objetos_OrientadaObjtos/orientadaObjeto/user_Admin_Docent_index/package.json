@@ -1,0 +1,17 @@
+{
+  "name": "orientadaobjeto",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "User.js",
+  "directories": {
+    "user_Admin_Docent_index": "user_Admin_Docent_index"
+  },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

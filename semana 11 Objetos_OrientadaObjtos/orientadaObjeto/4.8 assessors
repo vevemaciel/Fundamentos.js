@@ -1,0 +1,8 @@
+Para saber mais: assessors são sempre necessários?
+PRÓXIMA ATIVIDADE
+
+Durante a aula conhecemos os chamados assessors, ou métodos que dão acesso a determinadas propriedades. Os getters retornam valores e os setters definem valores. Mas será que estes métodos são sempre necessários, em todas as classes?
+
+Assim como a função constructor(), os assessors podem ser utilizados somente quando as funcionalidades são realmente necessárias. Por exemplo, um getter pode ser utilizado para retornar um dado da classe de uma forma específica (juntando nome e sobrenome como vimos durante a aula, ou qualquer outro caso). Um setter é útil quando se deseja executar algum código sempre que alguma propriedade é definida ou sofre alguma modificação - por exemplo, códigos que façam validação de campos. Os assessors também atuam na segurança de uma classe, encapsulando dados quando necessário.
+
+Durante a prática do desenvolvimento com classes, você terá a oportunidade de praticar cada caso e também ver situações onde os assessors não são necessários, ou o constructor(). Como dizemos para quase tudo em programação, “depende”!

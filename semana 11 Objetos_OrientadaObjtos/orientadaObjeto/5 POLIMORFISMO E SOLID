@@ -1,0 +1,6 @@
+O que aprendemos?
+PRÓXIMA ATIVIDADE
+
+Nessa aula, você aprendeu:
+Que chamamos de polimorfismo a alteração de um método de uma classe para que, na subclasse, o método tenha a mesma assinatura porém um comportamento diferente do método executado no contexto da superclasse;
+Que existe uma série de princípios de design de código pensados para a programação orientada a objetos, que estão compilados no acrônimo SOLID.

@@ -1,0 +1,8 @@
+Para saber mais: versões do NodeJS
+PRÓXIMA ATIVIDADE
+
+As linguagens de programação estão sempre passando por modificações e atualizações. No caso do JavaScript, os navegadores e os runtimes (como o NodeJS e o Deno) devem implementar estas modificações, e além disso as bibliotecas e frameworks que usamos no dia a dia também se atualizam para implementar novas funcionalidades.
+
+Este curso está sendo desenvolvido com NodeJS v14.10.1. A última versão LTS (long term support ou suporte a longo prazo) do NodeJS neste momento é a v16.13.2.
+
+Existe uma ferramenta muito útil para gerenciar quais versões do NodeJS você tem instaladas no seu computador e qual deseja usar para cada projeto. O nome é NVM (NodeJS version manager, gerenciador de versões do NodeJS), e você pode conferir o tutorial de instalação e uso neste artigo.
